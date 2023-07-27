@@ -1,0 +1,75 @@
+{
+  "appName": "Flyings' Universe",
+
+  "linkTextApi": "API Doc",
+  "linkTextVerification": "Verification",
+  "linkTextDashboard": "Dashboard",
+  "linkTextProfile": "Profile",
+  "linkTextLogout": "Logout",
+  "linkTextLogin": "Login",
+
+  "errGeneral": "Something wrong, please try again!",
+  "msgSuccess": "Success",
+
+  "errWeakPassword": "New password strength too weak!",
+  "errOldPwdEmpty": "Old password is empty!",
+  "errNewPwdEmpty": "New password is empty!",
+  "errNewPwdNotMatch": "New password and confirm new password is not match!",
+  "errNewPwdInvalid": "New password is invalid!",
+  "errOldPwdNotMatch": "Old password is not match!",
+
+  "subtitleResetPwd": "Reset Password",
+  "labelOldPassword": "Old Password",
+  "labelNewPassword": "New Password",
+  "labelConfirmPassword": "Confirm New Password",
+
+  "statusResetingPwd": "Reseting...",
+  "statusIdleResetPwd": "Reset Password",
+
+  "labelPwdStrength": "Password Strength",
+  "labelPwdRule1": "At least 8 characters",
+  "labelPwdRule2": "Lower case letters (a-z)",
+  "labelPwdRule3": "Upper case letters (A-Z)",
+  "labelPwdRule4": "Numbers (0-9)",
+  "labelPwdRule5": "Special characters (e.g. !@#$%^&*)",
+
+  "subtitleMyProfile": "My Profile",
+  "subtitleBasicInfo": "Basic Information",
+  "labelUserName": "User name",
+  "labelEmail": "Email",
+
+  "statusUpdatingInfo": "Updating...",
+  "statusIdleInfo": "Apply",
+
+  "greeting": "Welcome to {{app}}!!",
+  "welcome_desc_1": "Here, you can dive into our Dashboard, check out various fascinating data and reports, and stay updated with the latest status of this universe.",
+  "welcome_desc_2": "You can also visit your Profile, where you can update your settings for the most personalized experience.",
+  "welcome_desc_3": "Log in now and explore this amazing universe with us!",
+
+  "loggedIn_welcome_desc_1": "{{name}} welcome go home! We are glad to see you again.",
+  "loggedIn_welcome_desc_2": "Enjoy the power of our Dashboard, where you can explore various data and manage your activities.",
+  "loggedIn_welcome_desc_3": "Don't forget to visit your Profile and update your personal settings for a more customized experience.",
+
+  "subtitleVerify": "Verification Email",
+  "bodyVerify1": "To ensure the security of your account, we need to verify your email address. An email has been sent to your registered email address. Please check your inbox (or spam folder) and click on the link provided in the email to verify your account.",
+  "bodyVerify2": "If you didn't receive the email or if the link has expired, you can click the \"{{resendBn}}\" button below to send a new verification email. Please note that the button will be disabled for a certain period after each click to prevent spamming.",
+
+  "statusResentWait": "Resend after {{countdown}} seconds...",
+  "statusIdleResent": "Resend Now",
+
+  "subtitleStat": "User Statistics",
+  "statUserType": "Type",
+  "statUserName": "Name",
+  "statUserSignUpTime": "Sign Up Timestamp",
+  "statUserNoLogins": "Number of Logins",
+  "statUserLastSessionTime": "Last Session Timestamp",
+
+  "statNoUsers": "Total number of users",
+  "statNoTodayActive": "Total number of active users today",
+  "statAvgLast7": "Average number of active users in the last 7 days",
+  "statUserDatabase": "User Database Dashboard",
+
+  "title404": "Page Not Found",
+  "text404": "Oops! The page you are looking for could not be found 😰",
+  "back404ToHome": "Go to Home"
+}
