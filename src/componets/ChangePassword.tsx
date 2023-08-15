@@ -124,6 +124,9 @@ const ChangePassword: React.FC<ChangePasswordProps> = (para) => {
             </InputAdornment>
           ),
         }}
+        inputProps={{
+          maxLength: 64,
+        }}
         error={newPassword !== confirmPassword}
       />
 
@@ -148,6 +151,9 @@ const ChangePassword: React.FC<ChangePasswordProps> = (para) => {
               </IconButton>
             </InputAdornment>
           ),
+        }}
+        inputProps={{
+          maxLength: 64,
         }}
         error={newPassword !== confirmPassword}
       />

@@ -14,6 +14,7 @@ const HomePage = () => {
   const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const isLogging = useSelector((state: RootState) => state.auth.isLogging);
   const userAuth = useSelector((state: RootState) => state.auth.userAuth);
+  const loggedInStates = [AuthStatus.NotLoggedIn, AuthStatus.Init];
 
   if (isLogging) {
     return <Loading />;
@@ -43,7 +44,7 @@ const HomePage = () => {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            {isLoggedIn != AuthStatus.NotLoggedIn ? (
+            {!loggedInStates.includes(isLoggedIn) ? (
               <>
                 <Typography variant="h5" align="center" gutterBottom>{t('loggedIn_welcome_desc_1', { name: userAuth ? userAuth.name : '' })}</Typography>
                 <Typography variant="h5" align="center" gutterBottom>{t('loggedIn_welcome_desc_2')}</Typography>
@@ -70,7 +71,7 @@ const HomePage = () => {
             )}
           </Grid>
           <Grid item xs={12}>
-            {isLoggedIn != AuthStatus.NotLoggedIn ? (
+            {!loggedInStates.includes(isLoggedIn) ? (
               <Box sx={{ m: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                 <Button
                   color="inherit" variant="outlined"
@@ -85,6 +86,16 @@ const HomePage = () => {
               <Box sx={{ m: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                 <Button
                   color="inherit" variant="outlined"
+                  sx={{ marginRight: 2 }}
+                  onClick={() => {
+                    UtAuth.signup();
+                  }}>
+                  {t('linkTextSignup')}
+                </Button>
+
+                <Button
+                  color="inherit" variant="outlined"
+                  sx={{ marginLeft: 2 }}
                   onClick={() => {
                     UtAuth.login();
                   }}>

@@ -7,10 +7,13 @@ import { verificationEmail } from '../repo/AuthRepo';
 import { useTranslation } from 'react-i18next';
 import EmailVerificationHeader from '../componets/EmailVerificationHeader';
 import MyBox from '../componets/MyBox';
+import { AuthStatus } from '../store/AuthSlice';
+import Loading from '../componets/Loading';
 
 const EmailVerification = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
   const lastSend = useSelector((state: RootState) => state.emailVerification.lastSend);
   const [countdown, setCountdown] = useState(0);
 
@@ -37,6 +40,10 @@ const EmailVerification = () => {
     dispatch(setLastSend(Date.now()));
     setCountdown(60);
   };
+
+  if (isLoggedIn !== AuthStatus.Authenticating) {
+    return <Loading />;
+  }
 
   return (
     <Container

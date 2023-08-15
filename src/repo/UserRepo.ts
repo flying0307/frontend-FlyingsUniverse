@@ -1,12 +1,13 @@
 import { ResetPwdModel } from '../model/ResetPwdModel';
 import { UserModel } from '../model/UserModel';
 import { UserStatModel } from '../model/UserStatModel';
+import UtAuth from '../utils/UtAuth';
 import ResetPwdResponse from './data/ResetPwdResponse';
 import UserResponse from './data/UserResponse';
 import UserStatResponse from './data/UserStatResponse';
 
 export function fetchUser(): Promise<UserModel | null> {
-  return fetch('/api/user/me')
+  return UtAuth.commonFetch('/api/user/me')
     .then((response) => response.json())
     .then((data) =>{
       return UserResponse.toUserModel(data);
@@ -18,7 +19,7 @@ export function fetchUser(): Promise<UserModel | null> {
 }
 
 export function fetchUserList(): Promise<UserModel[] | null> {
-  return fetch('/api/user/list')
+  return UtAuth.commonFetch('/api/user/list')
     .then((response) => response.json())
     .then((data) => {
       return data.map(UserResponse.toUserModel);
@@ -30,7 +31,7 @@ export function fetchUserList(): Promise<UserModel[] | null> {
 }
 
 export function fetchUserState(): Promise<UserStatModel | null> {
-  return fetch('/api/user/stat')
+  return UtAuth.commonFetch('/api/user/stat')
     .then((response) => response.json())
     .then((data) => {
       return UserStatResponse.toUserStatModel(data);
@@ -43,7 +44,7 @@ export function fetchUserState(): Promise<UserStatModel | null> {
 
 
 export function updateInfo(email: string, name: string): Promise<UserModel | null> {
-  return fetch('/api/user/info', {
+  return UtAuth.commonFetch('/api/user/info', {
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json',
@@ -62,7 +63,7 @@ export function updateInfo(email: string, name: string): Promise<UserModel | nul
 }
 
 export function resetPassword(email: string, oldPassword: string, newPassword: string): Promise<ResetPwdModel | null> {
-  return fetch('/api/user/password', {
+  return UtAuth.commonFetch('/api/user/password', {
     method: 'POST', 
     headers: {
       'Content-Type': 'application/json',

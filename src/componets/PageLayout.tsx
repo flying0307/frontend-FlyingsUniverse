@@ -17,9 +17,10 @@ const PageLayout = ({ children }: LayoutProps) => {
   const notVerifyBlackList = ['/dashboard', '/profile'];
   const verifiedBlackList = ['/verification'];
   useEffect(() => {
-
-    if (isLoggedIn === AuthStatus.NotLoggedIn && notLoginBlackList.includes(location.pathname)) {
-      console.log('Navigate to home');
+    if (isLoggedIn === AuthStatus.Init) {
+      console.log(`${location.pathname} Init`);
+    } else if (isLoggedIn === AuthStatus.NotLoggedIn && notLoginBlackList.includes(location.pathname)) {
+      console.log(`${location.pathname} Navigate to home`);
       navigate('/home');
     } else if (isLoggedIn === AuthStatus.Authenticating && notVerifyBlackList.includes(location.pathname)) {
       console.log('Navigate to verification');
@@ -28,7 +29,7 @@ const PageLayout = ({ children }: LayoutProps) => {
       console.log('Login success. Navigate to home');
       navigate('/home');
     }
-  }, [isLoggedIn, location, navigate]);
+  }, [isLoggedIn, location]);
   return (
     <div>
       <Header />

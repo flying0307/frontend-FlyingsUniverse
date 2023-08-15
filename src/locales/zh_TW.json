@@ -7,6 +7,7 @@
   "linkTextProfile": "個人檔案",
   "linkTextLogout": "登出",
   "linkTextLogin": "登入",
+  "linkTextSignup": "註冊",
 
   "errGeneral": "出現問題，請再試一次！",
   "msgSuccess": "成功",

@@ -2,9 +2,10 @@ import AuthResponse from './data/AuthResponse';
 import { AuthModel } from '../model/AuthModel';
 import AcceptResponse from './data/AcceptResponse';
 import { AcceptModel } from '../model/AcceptModel';
+import UtAuth from '../utils/UtAuth';
 
 export function fetchAuth(): Promise<AuthModel | null> {
-  return fetch('/api/auth')
+  return UtAuth.commonFetch('/api/auth')
     .then((response) => response.json())
     .then((data) =>{
       return AuthResponse.toAuthModel(data);
@@ -16,7 +17,7 @@ export function fetchAuth(): Promise<AuthModel | null> {
 }
 
 export function verificationEmail(): Promise<AcceptModel | null> {
-  return fetch('/api/auth/verification-email')
+  return UtAuth.commonFetch('/api/auth/verification-email')
     .then((response) => response.json())
     .then((data) => {
       return AcceptResponse.toAcceptModel(data);

@@ -7,6 +7,7 @@
   "linkTextProfile": "Profile",
   "linkTextLogout": "Logout",
   "linkTextLogin": "Login",
+  "linkTextSignup": "Sign Up",
 
   "errGeneral": "Something wrong, please try again!",
   "msgSuccess": "Success",

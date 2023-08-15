@@ -34,6 +34,15 @@ const UtAuth = {
       window.location.href = '/logout';
     }
   },
+  signup() {
+
+    if (process.env.REACT_APP_ENV === 'dev') {
+      console.log('fetch signup');
+      fetch('/login');
+    } else {
+      window.location.href = '/signup';
+    }
+  },
   login() {
 
     if (process.env.REACT_APP_ENV === 'dev') {
@@ -45,6 +54,16 @@ const UtAuth = {
   },
   apiDoc() {
     window.open('/api-doc', '_blank');
+  },
+  async commonFetch(endpoint : string, options?: RequestInit | null) {
+    const response = await fetch(endpoint, options || undefined);
+    if (response.status === 401) {
+      if (window.location.pathname !== '/home') {
+        window.location.href = '/home';
+      }
+      return null; 
+    }
+    return response;
   },
 };
 export default UtAuth;

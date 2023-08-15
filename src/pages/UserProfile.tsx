@@ -115,6 +115,9 @@ const UserProfile: React.FC = () => {
             onChange={handleNicknameChange}
             fullWidth
             sx={{ mt: 2 }}
+            inputProps={{
+              maxLength: 64,
+            }}
           />
         </Box>
         <Box sx={{ m: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>

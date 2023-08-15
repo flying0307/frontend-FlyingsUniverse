@@ -11,6 +11,7 @@ import { IoLanguageSharp } from 'react-icons/io5';
 
 
 const Header = () => {
+  const loggedInStates = [AuthStatus.NotLoggedIn, AuthStatus.Init];
   const { t, i18n } = useTranslation();
   const [backgroundPosition] = useState(() => {
     const date = new Date();
@@ -33,7 +34,7 @@ const Header = () => {
 
 
   const changeLanguage = (event: { target: { value: string; }; }) => {
-    i18n.changeLanguage(event.target.value);
+    i18n.changeLanguageAndSave(event.target.value);
   };
   const isLoggedIn: AuthStatus = useSelector((state: RootState) => state.auth.isLoggedIn);
   const handleLogout = async () => {
@@ -63,7 +64,7 @@ const Header = () => {
             </Link>
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-            {isLoggedIn !== AuthStatus.NotLoggedIn ? (
+            {!loggedInStates.includes(isLoggedIn) ? (
               <>
                 {isLoggedIn === AuthStatus.Authenticating ? (
                   <MuiLink component={RouterLink} to="/verification" color="inherit" underline="none" sx={{ mx: 2 }}>
@@ -89,7 +90,7 @@ const Header = () => {
               {t('linkTextApi')}
             </MuiLink>
 
-            {isLoggedIn !== AuthStatus.NotLoggedIn ? (
+            {!loggedInStates.includes(isLoggedIn) ? (
               <MuiLink
                 component="button"
                 onClick={handleLogout}
